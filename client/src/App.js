@@ -39,25 +39,35 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{type}</h1>
-      <input
-        onChange={(e) => {
-          setType(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          sendMessageToback(type);
-        }}>
-        Send
-      </button>
-      {newMessage.map((mes, index) => {
-        return (
-          <div key={index}>
-            <h1>{mes}</h1>;
+      <div className="side-left"></div>
+      <div className="side-right">
+        <div className="header">
+          <h1>{type}</h1>
+
+          {newMessage.map((mes, index) => {
+            return (
+              <div key={index}>
+                <h1>{mes}</h1>;
+              </div>
+            );
+          })}
+        </div>
+        <div className="bottom-bar">
+          <div className="inner-div">
+            <input
+              onChange={(e) => {
+                setType(e.target.value);
+              }}
+            />
+            <button
+              onClick={() => {
+                sendMessageToback(type);
+              }}>
+              Send
+            </button>
           </div>
-        );
-      })}
+        </div>
+      </div>
     </div>
   );
 }
